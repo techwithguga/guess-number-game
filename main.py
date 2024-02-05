@@ -31,4 +31,4 @@ tries =  set_difficulty()
 print(f'You have {tries} remaining to guess the number.')
 
 guess = int(input("Guess the number: ")) 
-
+check_answer(guess, answer)
