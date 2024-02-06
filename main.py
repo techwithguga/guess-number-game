@@ -41,6 +41,9 @@ def game():
         tries = check_answer(guess, answer, tries)
         if tries == 0:
             print("No tries left,you lose!")
+            #return will exit game() function
             return
+        elif guess != answer:
+            print("Guess again!")
 game()
 
