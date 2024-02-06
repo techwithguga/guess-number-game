@@ -5,14 +5,16 @@ EASY_LEVEL_TRIES = 10
 HARD_LEVEL_TRIES = 5
 
 #check user answer against actuan chosen number
-def check_answer(guess,answer):
-    
+def check_answer(guess,answer, tries):
+    """checks answer against guess. Returns the number of turns remaning"""
     if guess > answer:
         print('too high')
+        return tries-1
     elif guess < answer:
         print('too low')
+        return tries-1
     else:
-        print("you've got it! Correct number was {answer}")
+        print(f'you\'ve got it! Correct number was {answer}.')
 
 #function to set difficulty
 def set_difficulty():
@@ -29,14 +31,15 @@ def game():
     print(f'the answer is : {answer}')
     
     tries =  set_difficulty()
-    print(f'You have {tries} remaining to guess the number.')
     
     #repeat guessing if they get it wrong and have tries left
     guess = 0
     while guess != answer:
-    
-        guess = int(input("Guess the number: ")) 
-        check_answer(guess, answer)
+        print(f'You have {tries} remaining to guess the number.')
 
+        guess = int(input("Guess the number: ")) 
+        tries = check_answer(guess, answer, tries)
+        if tries == 0:
+            print("No tries left")
 game()
 
