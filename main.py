@@ -40,6 +40,7 @@ def game():
         guess = int(input("Guess the number: ")) 
         tries = check_answer(guess, answer, tries)
         if tries == 0:
-            print("No tries left")
+            print("No tries left,you lose!")
+            return
 game()
 
